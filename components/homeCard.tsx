@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { CircleCheckBig, CircleDashed } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import placeholder from "@/components/600x400.jpg";
+import Puzzle from "@/components/puzzle";
 
 export interface HomeCardProps {
   taskID: string;
@@ -17,8 +17,12 @@ export default function HomeCard({
   completed,
   example,
 }: HomeCardProps) {
+  const router = useRouter();
   return (
-    <Card className="overflow-hidden">
+    <Card
+      className="cursor-pointer overflow-hidden w-48 hover:shadow-lg"
+      onClick={() => router.push(`/tasks/${taskID}`)}
+    >
       <CardHeader className="p-4 pb-2">
         <div className="flex items-center justify-between">
           <CardTitle>{taskID}</CardTitle>
@@ -31,14 +35,8 @@ export default function HomeCard({
         </div>
       </CardHeader>
       <Separator />
-      <CardContent className="p-0">
-        <Image
-          alt="puzzle image"
-          className="aspect-square object-cover"
-          width={200}
-          height={200}
-          src={placeholder}
-        />
+      <CardContent className="p-0 flex justify-center">
+        <Puzzle grid={example} size={192} />
       </CardContent>
     </Card>
   );

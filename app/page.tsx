@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HomeCard from "@/components/homeCard";
 
 export default function Home() {
