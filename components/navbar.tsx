@@ -36,7 +36,7 @@ export default function NavBar() {
         <div>
           <Progress
             className="w-72"
-            value={trainDone / 400}
+            value={trainDone / 4}
             max={100}
             color="bg-green-500"
           />
@@ -45,7 +45,7 @@ export default function NavBar() {
         <div>
           <Progress
             className="w-72"
-            value={valDone / 400}
+            value={valDone / 4}
             max={100}
             color="bg-blue-500"
           />
